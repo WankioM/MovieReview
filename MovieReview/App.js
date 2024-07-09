@@ -5,7 +5,19 @@ import { StyleSheet, Text, View , Button, TextInput} from 'react-native';
 export default function App() {
   const [name, setName]=useState('Tracy');
   const [quote, setQuote]=useState({index:0 , snippet: 'Deciding that you deserve better is radical as hell, because you are actively going against centuries of social brainwashing and oppression; you are telling the world that you see through its bullshit. That you acknowledge it wants you to exist in one way (marry the first man to “sweep you off your feet” and have his kids…), but instead choosing to go your own way and make up your own damn rules.'})
-  
+  const [themes, setThemes] = useState([
+    { theme: "Don't overinvest in those who don't reciprocate your energy.", key: '1' },
+    { theme: 'Cuddle cravings stem from unproductive weeks and unmet achievements.', key: '2' },
+    { theme: 'Avoid putting people on unrealistic pedestals; it skews perspectives.', key: '3' },
+    { theme: 'Acknowledge personal growth requires accountability for your boundaries.', key: '4' },
+    { theme: 'Recognize love accepted reflects your self-perceived worth.', key: '5' },
+    { theme: "Unpack desirability bias by respecting those you're not attracted to.", key: '6' },
+    { theme: 'Embrace self-love and reject societal expectations for genuine happiness.', key: '7' },
+    { theme: 'Beware falling for projections rather than true multifaceted individuals.', key: '8' },
+    { theme: 'Challenge normalized abuse to seek partners you truly deserve.', key: '9' },
+    { theme: 'Maintain journaling to avoid feeling lost and reignite your inner fire.', key: '10' }
+]);
+
 
   
 
@@ -26,11 +38,19 @@ export default function App() {
   }
   return (
     <View style={styles.container}>
+      
+
+      <Text> Enter Name</Text>
+      <TextInput 
+      style={styles.input}
+      placeholder='e.g John Doe'
+      onChangeText={(val)=> setName(val)} />
       <View style={styles.header}>
         <Text style={styles.boldText}>Hi {name}</Text>
       </View>
+
       <View style={styles.body}>
-        <Text>{quote.snippet}
+        <Text >{quote.snippet}
         </Text>
       </View>
 
@@ -64,6 +84,18 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     marginTop: 20,
+  },
+  input: {
+    borderWidth:1,
+    borderColor:'#7A4419',
+    padding: 8,
+    margin: 10,
+    width: 200,
+    borderRadius:2,
+  },
+  listContainer: {
+    flex: 1,
+    padding:0,
   }
 });
 
