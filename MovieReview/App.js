@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState} from 'react';
-import { StyleSheet, Text, View , Button, TextInput} from 'react-native';
+import { StyleSheet, Text, View , Button, TextInput, ScrollView} from 'react-native';
 
 export default function App() {
   const [name, setName]=useState('Tracy');
@@ -57,6 +57,19 @@ export default function App() {
       <View style={styles.buttonContainer}>
          <Button title="Change Name" onPress={clickHandler}/> 
       </View>
+
+      <View style={styles.viewlist}>
+        <ScrollView>
+        {themes.map((item) => {
+          return(
+            <View key={item.key} style={styles.listdiv}>
+              <Text style={styles.listtext}> {item.theme}</Text>
+            </View>
+
+          )
+        })}
+        </ScrollView>
+      </View>
     
     </View>
   );
@@ -68,6 +81,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#F5F0E0',
     alignItems: 'center',
     justifyContent: 'center',
+    paddding:15,
+    alignItems: 'center',
   },
   header: {
   
@@ -96,6 +111,24 @@ const styles = StyleSheet.create({
   listContainer: {
     flex: 1,
     padding:0,
+    maxHeight: 200,
+  },
+  listdiv: {
+    
+    padding:2,
+    marginTop:12,
+    margin:8,
+    backgroundColor: '#E06C9F',
+    borderRadius: 5,
+  },
+  listtext: {
+    
+    color:'#F6EFE0',
+    fontSize: 20,
+  },
+  viewlist:{
+    maxHeight: 300,
+    marginTop:10,
   }
 });
 
